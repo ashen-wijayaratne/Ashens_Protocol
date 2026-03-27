@@ -1,0 +1,81 @@
+/* Base Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body */
+body {
+  background-color: #ffffff;
+  color: #2e2e2e;
+  font-family: "Times New Roman", Times, serif;
+  line-height: 1.7;
+}
+
+/* Layout */
+.container {
+  max-width: 750px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+}
+
+/* Typography */
+h1,
+h2,
+h3 {
+  font-family: "Playfair Display", serif;
+  color: #1a1a1a;
+}
+
+h1 {
+  font-size: 2.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 2.5rem;
+}
+
+h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Sections */
+.section {
+  margin-bottom: 3rem;
+}
+
+.section p {
+  margin-bottom: 1rem;
+}
+
+/* Lists */
+ul {
+  padding-left: 1.2rem;
+}
+
+li {
+  margin-bottom: 0.4rem;
+}
+
+/* Protocol blocks */
+.protocol-block {
+  margin-bottom: 1.5rem;
+}
+
+/* Footer */
+.footer {
+  margin-top: 4rem;
+  font-size: 0.9rem;
+  color: #888;
+  text-align: center;
+}
