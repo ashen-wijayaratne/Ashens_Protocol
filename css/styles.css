@@ -114,6 +114,7 @@ h2 {
   font-size: 1.8rem;
   margin-bottom: 1rem;
   margin-top: 1.8rem;
+  text-align: left;
 }
 
 h3 {
@@ -148,6 +149,7 @@ ul {
 
 li {
   margin-bottom: 0.5rem;
+  text-align: left;
 }
 
 /* Protocol blocks */
@@ -372,7 +374,7 @@ li {
 
 /* Content */
 .container {
-  max-width: 760px;
+  max-width: 70ch;
   padding: 2rem 2rem;
 }
 
@@ -499,7 +501,7 @@ section {
 /* Narrow screens: readability and touch */
 @media (max-width: 700px) {
   body {
-    text-align: left;
+    text-align: justify;
   }
 
   h1 {
@@ -507,6 +509,7 @@ section {
   }
 
   h2 {
+    text-align: left;
     font-size: 1.5rem;
   }
 
@@ -520,6 +523,10 @@ section {
 
   p {
     font-size: 0.98rem;
+    text-justify: inter-word;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
   }
 
   .subtitle {
