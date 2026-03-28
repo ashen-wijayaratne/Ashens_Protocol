@@ -47,9 +47,9 @@ collapsibleSections.forEach((section) => {
   });
 });
 
-// Sidebar active link highlighting
+// Sidebar + mobile drawer: active link highlighting
 const sections = document.querySelectorAll("section[id]");
-const tocLinks = document.querySelectorAll(".toc a");
+const tocLinks = document.querySelectorAll(".toc a, .toc-drawer-links a");
 
 function setActiveLink() {
   let currentSection = "";
@@ -72,6 +72,67 @@ function setActiveLink() {
 }
 
 window.addEventListener("scroll", setActiveLink);
+setActiveLink();
+
+// Reading progress bar
+const readProgress = document.querySelector(".read-progress");
+
+function updateReadProgress() {
+  if (!readProgress) return;
+  const el = document.documentElement;
+  const scrollable = el.scrollHeight - el.clientHeight;
+  const pct = scrollable > 0 ? (el.scrollTop / scrollable) * 100 : 0;
+  readProgress.style.width = `${pct}%`;
+  readProgress.setAttribute("aria-valuenow", String(Math.round(pct)));
+}
+
+window.addEventListener("scroll", updateReadProgress, { passive: true });
+window.addEventListener("resize", updateReadProgress);
+updateReadProgress();
+
+// Mobile contents drawer
+const tocToggle = document.querySelector(".toc-toggle");
+const tocDrawer = document.getElementById("tocDrawer");
+const tocDrawerOverlay = document.getElementById("tocDrawerOverlay");
+const tocClose = document.querySelector(".toc-close");
+
+function setTocDrawerOpen(open) {
+  if (!tocDrawer || !tocToggle) return;
+  tocDrawer.classList.toggle("is-open", open);
+  if (tocDrawerOverlay) {
+    tocDrawerOverlay.classList.toggle("is-open", open);
+    tocDrawerOverlay.setAttribute("aria-hidden", open ? "false" : "true");
+  }
+  tocDrawer.setAttribute("aria-hidden", open ? "false" : "true");
+  tocToggle.setAttribute("aria-expanded", open ? "true" : "false");
+  document.body.classList.toggle("toc-drawer-open", open);
+}
+
+if (tocToggle && tocDrawer) {
+  tocToggle.addEventListener("click", () => {
+    const next = !tocDrawer.classList.contains("is-open");
+    setTocDrawerOpen(next);
+  });
+}
+
+if (tocClose) {
+  tocClose.addEventListener("click", () => setTocDrawerOpen(false));
+}
+
+if (tocDrawerOverlay) {
+  tocDrawerOverlay.addEventListener("click", () => setTocDrawerOpen(false));
+}
+
+document.querySelectorAll(".toc-drawer-links a").forEach((link) => {
+  link.addEventListener("click", () => setTocDrawerOpen(false));
+});
+
+document.addEventListener("keydown", (e) => {
+  if (e.key !== "Escape") return;
+  if (tocDrawer?.classList.contains("is-open")) {
+    setTocDrawerOpen(false);
+  }
+});
 
 // Relax Mode Modal
 const modal = document.getElementById("relax-modal");

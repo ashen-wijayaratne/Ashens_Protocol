@@ -39,6 +39,59 @@
   </head>
 
   <body>
+    <div
+      class="read-progress"
+      role="progressbar"
+      aria-valuemin="0"
+      aria-valuemax="100"
+      aria-valuenow="0"
+      aria-label="Reading progress"
+    ></div>
+
+    <button
+      type="button"
+      class="toc-toggle"
+      aria-expanded="false"
+      aria-controls="tocDrawer"
+    >
+      ☰ Contents
+    </button>
+    <div
+      class="toc-drawer-overlay"
+      id="tocDrawerOverlay"
+      aria-hidden="true"
+    ></div>
+    <div
+      class="toc-drawer"
+      id="tocDrawer"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="tocDrawerTitle"
+      aria-hidden="true"
+    >
+      <div class="toc-drawer-header">
+        <span class="toc-drawer-title" id="tocDrawerTitle">Contents</span>
+        <button
+          type="button"
+          class="toc-close"
+          aria-label="Close contents"
+        >
+          &times;
+        </button>
+      </div>
+      <nav class="toc-drawer-links" aria-label="Page contents">
+        <a href="#summary">Summary</a>
+        <a href="#protocols">Protocols</a>
+        <a href="#sleep">Sleep</a>
+        <a href="#nutrition">Nutrition</a>
+        <a href="#exercise">Exercise</a>
+        <a href="#skin-care">Skin Care</a>
+        <a href="#oral-care">Oral Care</a>
+        <a href="#routine">Routine</a>
+        <a href="#references">References</a>
+      </nav>
+    </div>
+
     <div class="page-layout">
       <aside class="toc">
         <h3 class="toc-title">Contents</h3>
